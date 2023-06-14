@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/spacing_double"
+            tools:context=".ui.detail.MovieDetailFragment">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/poster_image_view"
+                android:layout_width="128dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/spacing_double"
+                android:scaleType="fitCenter"
+                android:transitionName="poster_image_view"
+                app:layout_constraintDimensionRatio="0.6666666"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/orange_700"
+                tools:src="@drawable/ic_place_holder_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:textSize="@dimen/text_normal"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/poster_image_view"
+                app:layout_constraintTop_toTopOf="@id/poster_image_view"
+                tools:text="Sponge Bob" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/date_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_normal"
+                android:layout_marginVertical="@dimen/spacing_small"
+                android:textSize="@dimen/text_xxsmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/poster_image_view"
+                app:layout_constraintTop_toBottomOf="@id/title_text_view"
+                tools:text="2019" />
+
+            <include
+                android:id="@+id/rating_view"
+                layout="@layout/layout_rating"
+                android:layout_width="48dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/spacing_small"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/poster_image_view"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toEndOf="@id/poster_image_view"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/genre_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/spacing_double"
+                android:background="@color/black"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/spacing_double"
+                android:paddingVertical="@dimen/spacing_normal"
+                android:textSize="@dimen/text_xxsmall"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/poster_image_view"
+                tools:text="Thriller, Action, Drama, Crime" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/heading_overview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/spacing_normal"
+                android:layout_marginVertical="@dimen/spacing_double"
+                android:text="@string/overview"
+                android:textSize="@dimen/text_xnormal"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/genre_text_view"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/overview_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/heading_overview"
+                tools:text="Caught in the cross hairs of police corruption and Marseille’s warring gangs, a loyal cop must protect his squad by taking matters into his own hands." />
+
+
+            <com.example.movies.ui.common.PageLoadStateView
+                android:id="@+id/load_state_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/overview_text_view" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/favorite_button"
+        style="@style/RippleItemBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/spacing_normal"
+        android:contentDescription="@string/title_favorites"
+        android:src="@drawable/ic_favorite_24"
+        app:layout_anchorGravity="bottom|right|end"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
